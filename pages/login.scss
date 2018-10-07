@@ -1,0 +1,52 @@
+@import "../src/style/utils/variables";
+@import "../src/style/utils/functions";
+@import "../src/style/utils/mixins";
+
+.header,
+.content,
+.layout {
+  background: transparent;
+}
+
+.header {
+  text-align: center;
+}
+
+.content {
+  display: flex;
+
+  padding: 0 50px;
+
+  justify-content: center;
+}
+
+.button {
+  width: 100%;
+}
+
+.card {
+  width: 350px;
+}
+
+.icon {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+.social {
+  display: flex;
+
+  justify-content: space-between;
+  > * {
+    width: 48%;
+  }
+}
+
+@include media("<=phone") {
+  .social {
+    flex-wrap: wrap;
+
+    > * {
+      width: 100%;
+    }
+  }
+}

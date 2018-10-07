@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render a Header component 1`] = `
+<Adapter>
+  <Link
+    href="/"
+    prefetch={true}
+  >
+    <div>
+      Mobile Payment
+    </div>
+  </Link>
+  <div>
+    <span>
+      Hello 
+      mock
+    </span>
+    ,
+     
+    <a
+      href="#"
+      onClick={[Function]}
+    >
+      log out
+    </a>
+  </div>
+</Adapter>
+`;

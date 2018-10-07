@@ -1,0 +1,155 @@
+// EXAMPLES:
+//
+// .include-media-test {
+//   @include media("<=phone") {
+//     background-color: #def;
+
+//     &:before {
+//       content: "<=phone";
+//     }
+//   }
+
+//   @include media(">phone") {
+//     background-color: #abc;
+
+//     &:before {
+//       content: ">phone";
+//     }
+//   }
+
+//   @include media(">=815px", "<desktop") {
+//     background-color: #fed;
+
+//     &:before {
+//       content: ">=815px, <desktop";
+//     }
+//   }
+
+//   @include media(">=desktop") {
+//     background-color: #fab;
+
+//     &:before {
+//       content: ">=desktop";
+//     }
+//   }
+
+//   @include media("retina2x") {
+//     &:after {
+//       content: "Retina" !important;
+//     }
+//   }
+// }
+
+@mixin media($conditions...) {
+  @for $i from 1 through length($conditions) {
+    $conditions: set-nth($conditions, $i, parse-expression(nth($conditions, $i)));
+  }
+
+  $branches: get-query-branches($conditions);
+  $query: "";
+
+  @each $branch in $branches {
+    @if (str-length($query) != 0) {
+      $query: $query + ", ";
+    }
+
+    $query: $query + $branch;
+  }
+
+  @media #{$query} {
+    @content;
+  }
+}
+
+@mixin font-face(
+  $fontFamily: myFont,
+  $eotFileSrc: "myFont.eot",
+  $woffFileSrc: "myFont.woff",
+  $ttfFileSrc: "myFont.ttf",
+  $svgFileSrc: "",
+  $svgFontID: "",
+  $fontStyle: normal,
+  $fontWeight: 400
+) {
+  font-family: $fontFamily;
+  src: url($eotFileSrc) format("eot"), url($woffFileSrc) format("woff"),
+    url($ttfFileSrc) format("truetype");
+  @if ($svgFileSrc and $fontStyle) {
+    src: url($svgFileSrc+$svgFontID) format("svg");
+  }
+  font-style: $fontStyle;
+  font-weight: $fontWeight;
+  font-display: swap;
+}
+
+@mixin cover() {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin accelerate($name) {
+  will-change: $name;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@mixin ghostVerticalAlign($pseudo: "before") {
+  &:#{$pseudo} {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    width: 0.1px;
+  }
+}
+
+@mixin overlay() {
+  @include cover;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@mixin center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin textOverflow() {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@mixin ie() {
+  @media all and (-ms-high-contrast: none) {
+    @content;
+  }
+}
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin flex-font-size($min, $max, $minWidth: $fontMinWidth, $maxWidth: $fontMaxWidth) {
+  font-size: #{$min}px !important;
+  @media (min-width: #{$minWidth}px) and (max-width: #{$maxWidth}px) {
+    font-size: calc(
+      #{$min}px + (#{$max} - #{$min}) * ((100vw - #{$minWidth}px) / (#{$maxWidth} - #{$minWidth}))
+    ) !important;
+  }
+  @media (min-width: #{$maxWidth}px) {
+    font-size: #{$max}px !important;
+  }
+}
