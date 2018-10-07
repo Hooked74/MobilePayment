@@ -8,7 +8,7 @@
 
 <br />
 
-[Demo](https://mysterious-peak-44366.herokuapp.com/)
+[Demo](https://mobilepayment.now.sh)
 
 ## Quickstart
 
