@@ -9,7 +9,7 @@ install:
   - yarn install
 script:
   - CI=true yarn test
-before_deploy: yarn install now --no-save
+before_deploy: npm install now --no-save
 deploy:
   provider: script
   script: now rm mobilepayment --yes --token $NOW_TOKEN && now --token $NOW_TOKEN && now alias --token $NOW_TOKEN

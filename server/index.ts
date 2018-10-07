@@ -1,3 +1,8 @@
+import * as dotenv from "dotenv";
+import { resolve } from "path";
+
+dotenv.config({ path: resolve(process.cwd(), ".env") });
+
 import d from "debug";
 import * as express from "express";
 import { IncomingMessage, ServerResponse } from "http";
