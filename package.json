@@ -5,7 +5,7 @@
   "main": "dist-server/index.js",
   "scripts": {
     "dev": "dotenv -- nodemon -e ts -x ts-node --project tsconfig.server.json server/index.ts",
-    "build": "rimraf dist-server && tsc --project tsconfig.server.json && cross-env NODE_ENV=production next build",
+    "build": "rimraf dist-server && tsc --project tsconfig.server.json && cross-env NODE_ENV=production next build && echo \"Built on Travis CI\"",
     "start": "cross-env NODE_ENV=production dotenv -- node dist-server/index.js",
     "start-pm2": "cross-env NODE_ENV=production dotenv -- pm2 start dist-server/index.js --name mobile-payment -i 4",
     "stop-pm2": "[[ $((pm2 info mobile-payment) | grep status) =~ 'online' ]] && pm2 stop mobile-payment  || echo \"Stop mobile-payment service\"",
@@ -15,8 +15,7 @@
     "postcommit": "git update-index --again",
     "prettier": "prettier --write",
     "lint": "tslint --fix -c ./tslint-base.json",
-    "create-user": "node scripts/create-local-user.js",
-    "now-build": "echo \"Built on Travis CI\""
+    "create-user": "node scripts/create-local-user.js"
   },
   "repository": {
     "type": "git",
