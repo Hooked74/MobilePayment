@@ -1,7 +1,8 @@
 <h1 align="center"><strong>MobilePayment</strong></h1>
-[![Build Status](https://travis-ci.org/Hooked74/MobilePayment.svg?branch=master)](https://travis-ci.org/Hooked74/MobilePayment)
-<br />
 
+[![Build Status](https://travis-ci.org/Hooked74/MobilePayment.svg?branch=master)](https://travis-ci.org/Hooked74/MobilePayment)
+
+<br />
 
 ![](https://i.imgur.com/XqMhdg8.png)
 
