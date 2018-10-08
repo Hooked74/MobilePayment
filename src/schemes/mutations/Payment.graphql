@@ -1,0 +1,7 @@
+mutation Payment($operatorId: String!, $phoneNumber: String!, $amount: Int!) {
+  pay(operatorId: $operatorId, phoneNumber: $phoneNumber, amount: $amount) {
+    success
+    operatorId
+    balance
+  }
+}

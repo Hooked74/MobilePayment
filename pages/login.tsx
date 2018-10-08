@@ -101,7 +101,7 @@ export default class Login extends PureComponent<IAdvancedProps, IState> {
     );
   }
 
-  public login = async (e: MouseEvent): Promise<void> => {
+  private login = async (e: MouseEvent): Promise<void> => {
     e.preventDefault();
     this.setState({ loading: true });
 

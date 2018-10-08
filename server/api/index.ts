@@ -6,14 +6,21 @@ interface IModule {
 }
 
 /* tslint:disable:no-var-requires */
-const modules: IModule[] = [require("./modules/user")];
+const modules: IModule[] = [
+  require("./modules/user"),
+  require("./modules/operators"),
+  require("./modules/events")
+];
 
 const mainDefs: string[] = [
   `
     schema {
         query: Query,
-        #mutation: Mutation
+        mutation: Mutation
     }
+
+    type Query
+    type Mutation
 `
 ];
 

@@ -1,0 +1,8 @@
+query GetOperators {
+  operators {
+    id
+    name
+    image
+    balance
+  }
+}

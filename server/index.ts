@@ -19,6 +19,7 @@ type THandle = (req: IncomingMessage, res: ServerResponse, parsedUrl?: UrlLike) 
   server.set("handleStatic", handle);
   server.set("firebase", firebase);
   server.set("firestore", firestore);
+  server.set("app", app);
 
   await app.prepare();
 

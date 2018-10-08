@@ -1,0 +1,6 @@
+query GetOperatorById($id: String!) {
+  operator(id: $id) {
+    name
+    image
+  }
+}

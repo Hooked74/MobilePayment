@@ -1,0 +1,24 @@
+@import "../../style/utils/variables";
+@import "../../style/utils/functions";
+@import "../../style/utils/mixins";
+
+.container {
+  margin-top: 20px;
+}
+
+@include media("<=520px") {
+  .item {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .meta {
+    width: 100%;
+
+    flex: auto;
+  }
+
+  .button {
+    margin-top: 10px;
+  }
+}

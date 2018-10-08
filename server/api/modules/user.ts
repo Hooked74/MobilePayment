@@ -12,7 +12,7 @@ type User {
   provider: String
 }
 
-type Query {
+extend type Query {
   me: User
 }
 `;

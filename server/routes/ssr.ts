@@ -18,6 +18,19 @@ router.get("/login", (req, res) => {
 });
 
 router.get(
+  "/o/:id",
+  passport.authenticate("jwt-static", {
+    session: false,
+    failureRedirect: "/login"
+  }),
+  (req, res) => {
+    const actualPage = "/";
+    const queryParams = { id: req.params.id };
+    res.app.get("app").render(req, res, actualPage, queryParams);
+  }
+);
+
+router.get(
   "*",
   passport.authenticate("jwt-static", {
     session: false,

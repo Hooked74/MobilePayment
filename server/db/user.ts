@@ -45,9 +45,9 @@ export default class User extends Model {
   public static readonly LOCAL_PROVIDER = "local";
   public static readonly FACEBOOK_PROVIDER = "facebook";
   public static readonly GOOGLE_PROVIDER = "google";
+  protected static COLLECTION_NAME: string = "users";
 
-  protected collectionName: string = "users";
-  protected data: TUserData;
+  private data: TUserData;
 
   constructor(data: TUserData) {
     super();
@@ -60,8 +60,8 @@ export default class User extends Model {
   }
 
   public async find(): Promise<FirebaseFirestore.QueryDocumentSnapshot> {
-    const collection: FirebaseFirestore.CollectionReference = this.db.collection(
-      this.collectionName
+    const collection: FirebaseFirestore.CollectionReference = Model.DB.collection(
+      User.COLLECTION_NAME
     );
 
     const query: FirebaseFirestore.Query = this.data.id
@@ -117,7 +117,7 @@ export default class User extends Model {
   ): Promise<FirebaseFirestore.DocumentReference> {
     const date: string = new Date().toISOString();
 
-    return this.db.collection(this.collectionName).add({
+    return Model.DB.collection(User.COLLECTION_NAME).add({
       ...this.data,
       ...credentials,
       createAt: date,
@@ -126,8 +126,7 @@ export default class User extends Model {
   }
 
   private updateLastAt(id: string): Promise<FirebaseFirestore.WriteResult> {
-    return this.db
-      .collection(this.collectionName)
+    return Model.DB.collection(User.COLLECTION_NAME)
       .doc(id)
       .update({
         lastLoginAt: new Date().toISOString()
