@@ -32,7 +32,7 @@
     "url": "git+https://github.com/Hooked74/MobilePayment.git"
   },
   "engines": {
-    "node": ">= 12.4.0"
+    "node": ">= 10.x"
   },
   "keywords": [],
   "author": "",
