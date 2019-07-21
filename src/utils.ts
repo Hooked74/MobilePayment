@@ -1,8 +1,8 @@
 import cookie from "cookie";
-import { NextDocumentContext } from "next/document";
+import { DocumentContext } from "next/document";
 import Router from "next/router";
 
-export const redirect = (target: string, context?: NextDocumentContext) => {
+export const redirect = (target: string, context?: DocumentContext) => {
   if (context && context.res) {
     // server
     // 303: "See other"
@@ -15,7 +15,7 @@ export const redirect = (target: string, context?: NextDocumentContext) => {
 };
 
 export const parseCookies = (
-  context?: NextDocumentContext,
+  context?: DocumentContext,
   options: cookie.CookieParseOptions = {}
 ): MobilePayment.ICookieParseResult =>
   cookie.parse(

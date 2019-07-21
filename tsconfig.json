@@ -22,7 +22,12 @@
     "typeRoots": ["./typings", "./node_modules/@types", "./pages", "./src"],
     "downlevelIteration": true,
     "resolveJsonModule": true,
-    "strictBindCallApply": true
+    "strictBindCallApply": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "isolatedModules": true
   },
   "exclude": [
     "node_modules",
@@ -32,5 +37,6 @@
     "webpack",
     "jest",
     "./**/*.js"
-  ]
+  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

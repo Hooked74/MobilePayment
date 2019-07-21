@@ -1,6 +1,6 @@
 import { NormalizedCacheObject } from "apollo-cache-inmemory/lib/types";
 import { ApolloClient } from "apollo-client";
-import { NextDocumentContext } from "next/document";
+import { DocumentContext } from "next/document";
 import Head from "next/head";
 import { PureComponent } from "react";
 import { ApolloProvider, getDataFromTree } from "react-apollo";
@@ -15,7 +15,7 @@ export default (ComposedComponent: any) =>
   class WithData extends PureComponent<IProps<NormalizedCacheObject>, IState> {
     public static displayName: string = `WithData(${ComposedComponent.displayName})`;
 
-    public static async getInitialProps(context: NextDocumentContext) {
+    public static async getInitialProps(context: DocumentContext) {
       let serverState: NormalizedCacheObject = {};
 
       // Setup a server-side one-time-use apollo client for initial props and

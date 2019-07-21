@@ -1,6 +1,6 @@
 // tslint:disable:max-classes-per-file
 
-import * as passport from "passport";
+import passport from "passport";
 import { Strategy as FacebookStrategy } from "passport-facebook";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import { ExtractJwt, Strategy as JWTStrategy } from "passport-jwt";

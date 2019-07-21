@@ -1,16 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header should render a Header component 1`] = `
-<Adapter>
+<Adapter
+  className="container"
+>
   <Link
     href="/"
     prefetch={true}
   >
-    <div>
+    <div
+      className="logo"
+    >
       Mobile Payment
     </div>
   </Link>
-  <div>
+  <div
+    className="welcome"
+  >
     <span>
       Hello 
       mock

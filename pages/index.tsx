@@ -1,7 +1,7 @@
 import { Layout, message } from "antd";
 import { NormalizedCacheObject } from "apollo-cache-inmemory";
 import ApolloClient from "apollo-client";
-import { NextDocumentContext } from "next/document";
+import { DocumentContext } from "next/document";
 import { PureComponent } from "react";
 import { compose, withApollo } from "react-apollo";
 import Header from "../src/components/Header/Header";
@@ -24,7 +24,7 @@ interface IState {}
 @compose(withData, withApollo) // prettier-ignore
 export default class Index extends PureComponent<IProps, IState> {
   public static async getInitialProps(
-    context: NextDocumentContext,
+    context: DocumentContext,
     apolloClient: ApolloClient<NormalizedCacheObject>
   ): Promise<any> {
     const operatorId: string =

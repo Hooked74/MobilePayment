@@ -1,11 +1,11 @@
-import * as bodyParser from "body-parser";
-import * as cookieParser from "cookie-parser";
+import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
 import { Express } from "express";
-import * as expressStatusMonitor from "express-status-monitor";
-import * as expressWinston from "express-winston";
-import * as helmet from "helmet";
-import * as methodOverride from "method-override";
-import * as morgan from "morgan";
+import expressStatusMonitor from "express-status-monitor";
+import expressWinston from "express-winston";
+import helmet from "helmet";
+import methodOverride from "method-override";
+import morgan from "morgan";
 import passport from "./passport";
 import winstonInstance from "./winston";
 

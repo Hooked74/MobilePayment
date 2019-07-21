@@ -3,7 +3,7 @@ import { Button, Card, Form, Icon, Input, Layout, message } from "antd";
 import { FormComponentProps } from "antd/lib/form";
 import { GetFieldDecoratorOptions } from "antd/lib/form/Form";
 import fetch from "isomorphic-unfetch";
-import { CSSProperties, MouseEvent, PureComponent } from "react";
+import { CSSProperties, FormEvent, PureComponent } from "react";
 import { FacebookLoginButton, GoogleLoginButton } from "react-social-login-buttons";
 import { redirect } from "../src/utils";
 import style from "./login.scss";
@@ -101,7 +101,7 @@ export default class Login extends PureComponent<IAdvancedProps, IState> {
     );
   }
 
-  private login = async (e: MouseEvent): Promise<void> => {
+  private login = async (e: FormEvent): Promise<void> => {
     e.preventDefault();
     this.setState({ loading: true });
 
