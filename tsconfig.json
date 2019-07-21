@@ -21,7 +21,8 @@
     "baseUrl": ".",
     "typeRoots": ["./typings", "./node_modules/@types", "./pages", "./src"],
     "downlevelIteration": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "strictBindCallApply": true
   },
   "exclude": [
     "node_modules",
