@@ -187,7 +187,7 @@
     "method-override": "^3.0.0",
     "mini-css-extract-plugin": "^0.4.3",
     "morgan": "^1.9.1",
-    "next": "^7.0.1",
+    "next": "^7.0.2",
     "node-pre-gyp": "^0.11.0",
     "node-sass": "^4.9.3",
     "nodemon": "^1.18.4",
