@@ -19,8 +19,10 @@ export const parseCookies = (
   options: cookie.CookieParseOptions = {}
 ): MobilePayment.ICookieParseResult =>
   cookie.parse(
-    (context && context.req && context.req.headers.cookie
+    (context && context.req
       ? context.req.headers.cookie
+        ? context.req.headers.cookie
+        : ""
       : document.cookie) as string,
     options
   );
