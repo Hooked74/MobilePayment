@@ -19,9 +19,7 @@ function create(
   { getToken }: MobilePayment.IApolloInitOptions
 ): ApolloClient<NormalizedCacheObject> {
   const httpLink: ApolloLink = createHttpLink({
-    uri: !process.browser
-      ? `http://${process.env.HOST || "localhost"}:${process.env.PORT || 3000}/graphql`
-      : "/graphql",
+    uri: "/graphql",
     credentials: "same-origin"
   });
 
