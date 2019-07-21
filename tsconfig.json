@@ -25,9 +25,9 @@
     "strictBindCallApply": true,
     "skipLibCheck": true,
     "strict": false,
-    "noEmit": true,
     "esModuleInterop": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "noEmit": true
   },
   "exclude": [
     "node_modules",
