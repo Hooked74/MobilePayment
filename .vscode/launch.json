@@ -12,7 +12,7 @@
       "args": [
         "--project",
         "${workspaceRoot}/tsconfig.server.json",
-        "${workspaceRoot}/server/index.ts"
+        "${workspaceRoot}/server/debug.ts"
       ],
       "cwd": "${workspaceRoot}",
       "protocol": "inspector"

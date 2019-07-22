@@ -4,7 +4,8 @@ import { ApolloClient } from "apollo-client";
 import { ApolloLink } from "apollo-link";
 import { setContext } from "apollo-link-context";
 import { createHttpLink } from "apollo-link-http";
-import debug from "debug";
+import d from "debug";
+
 import fetch from "isomorphic-unfetch";
 
 let apolloClient: ApolloClient<NormalizedCacheObject> = null;
@@ -18,8 +19,11 @@ function create(
   initialState: NormalizedCacheObject,
   { getToken }: MobilePayment.IApolloInitOptions
 ): ApolloClient<NormalizedCacheObject> {
+  const debug: d.IDebugger = d("app:started");
+  debug(process.env);
+
   const httpLink: ApolloLink = createHttpLink({
-    uri: "/graphql",
+    uri: !process.browser ? `http://${process.env.HOST}:${process.env.PORT}/graphql` : "/graphql",
     credentials: "same-origin"
   });
 

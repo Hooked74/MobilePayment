@@ -1,10 +1,8 @@
 import d from "debug";
-import dotenv from "dotenv";
 import express from "express";
 import { IncomingMessage, ServerResponse } from "http";
 import next from "next";
 import Server from "next-server/dist/server/next-server";
-import { resolve } from "path";
 import { UrlWithParsedQuery } from "url";
 import applyExpressConfiguration from "./config/express";
 import firebase, { firestore } from "./config/firebase";
@@ -17,8 +15,6 @@ type THandle = (
 ) => Promise<void>;
 
 (async function main() {
-  dotenv.config({ path: resolve(process.cwd(), ".env") });
-
   const debug: d.IDebugger = d("app:started");
   const dev: boolean = process.env.NODE_ENV !== "production";
   const app: Server = next({ dev });
