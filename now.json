@@ -2,5 +2,12 @@
   "version": 2,
   "name": "mobilepayment",
   "alias": "mobilepayment",
-  "public": true
+  "public": true,
+  "build": {
+    "env": {
+      "HOST": "mobilepayment.now.sh",
+      "PORT": 80,
+      "NODE_ENV": "production"
+    }
+  }
 }
