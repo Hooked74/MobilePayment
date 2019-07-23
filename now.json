@@ -6,7 +6,7 @@
   "build": {
     "env": {
       "HOST": "mobilepayment.now.sh",
-      "PORT": 80,
+      "PORT": "80",
       "NODE_ENV": "production"
     }
   }
