@@ -1,13 +1,13 @@
 import * as React from "react";
-import { ChangeEvent, PureComponent } from "react";
+import { FormEvent, PureComponent } from "react";
 import InputMask from "react-input-mask";
 
 interface IProps {
-  onChange?: (e: ChangeEvent) => void;
+  onChange?: (e: FormEvent) => void;
 }
 
 export default class PhoneInput extends PureComponent<IProps> {
-  public onChange = (e: ChangeEvent) => {
+  public onChange = (e: FormEvent) => {
     const { onChange } = this.props;
     if (onChange) onChange(e);
   };
