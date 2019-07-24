@@ -14,23 +14,17 @@
 
 ### Application start
 
-Install all packages `$ yarn install`. You can build the developement version of the application using `$ yarn dev`. For the production version use:
+Install all packages `$ npm install`. You can build the developement version of the application using `$ npm run dev`. For the production version use:
 ```
-$ yarn build
-$ yarn start-pm2
+$ npm run build
+$ npm run start-pm2
 ```
-and `$ yarn stop-pm2` to stop **pm2** processes.
+and `$ npm run stop-pm2` to stop **pm2** processes.
 
 ### Create user
 
-Using the command `$ yarn create-user` you can create a new user. This command also accepts custom email and password arguments:
+Using the command `$ npm run create-user` you can create a new user. This command also accepts custom email and password arguments:
 
 ```
-$ yarn create-user -e myemail@mail.com -p secretpassword
-```
-
-## Refactoring result
-
-```js
-const highestLastIndex = (s, a, b) => Math.max(s.lastIndexOf(a), s.lastIndexOf(b));
+$ npm run create-user -- -e myemail@mail.com -p secretpassword
 ```

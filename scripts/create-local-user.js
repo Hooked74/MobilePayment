@@ -14,9 +14,11 @@ const firestore = firebase.firestore();
 firestore.settings({ timestampsInSnapshots: true });
 
 program
-  .option("-e, --email", "Custom email")
-  .option("-p, --password", "Custom password")
+  .option("-e, --email <MyEmail>", "Custom email")
+  .option("-p, --password <Password>", "Custom password")
   .parse(process.argv);
+
+console.log(program);
 
 let data;
 
@@ -26,6 +28,7 @@ firestore
   .get()
   .then(snapshot => {
     const uid = snapshot.docs.length + 1;
+
     const password = program.password || "secretPassword";
     const salt = crypto.randomBytes(128).toString("base64");
     const passwordHash = crypto.pbkdf2Sync(password, salt, 1, 128, "sha1");
