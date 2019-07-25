@@ -1,3 +1,4 @@
+sudo: required
 dist: trusty
 language: node_js
 node_js:
@@ -11,11 +12,10 @@ script:
   - CI=true yarn test
 before_deploy: npm install now --no-save
 deploy:
-  provider: script
-  script:
-    - now rm mobilepayment --yes --token $NOW_TOKEN
-    - now --token $NOW_TOKEN
-    - now alias --token $NOW_TOKEN
+  provider: heroku
+  app: mobile-payment
   skip_cleanup: true
   on:
     master: true
+  api_key:
+    secure: A4daR0wrNuQvnhm3IL8DzKx9j0bqXES7by4k0zVw35nsJuJHggXLf7obPn6DuFgIDqXaUNdcD9O6o/zVaJjdJDrFXqz9zIV4m/anEzNRaOeHAJ7/A9x274cvUcwo10LM00lR8rhcto42Ndz8YEuO+AEkE7UfiQc52OJlF6TwwFVc/mMHnMS6Pwa/vs4ayVZ2NRKCSps3MZ2OicQmEht2fP3xat07cVeTyRY5ezRKdRoQYAFnlgHx/d3La3eWC4xOj+Cotr/AtP4xAlXGY2fHzlFzUjjOt8yAkOJ2tSCJienjgrxBI+Y7nbCSq0jfxA3oaF6ugYUTQLR2XgUgGKWOq5K4qtsbukJxjxCKwKG7BvbI9Fk2Cf+ccV/2/VcT3tdN1JjUsH2hHhMsdSXqGB6w+ScpY1ERcLI35xBrqsqwsvlq+QvFjyifogAW1ItL4UKoVuYCC4TQutTq96GonvYNGd561e6o+oBlrOZ3QpsIQHk9ymTbW7iAQ24ShflWciJHD+4mHbS5WulqjHSMPSJQ+F3JvDJcoAHKrXdDh1saQxh57HsBDBndRHv7sKmm7jX9J1Qab+0hwkhO44K4xSIux9YQrcxBg5zbbV+ElonOU2JhhoBAZDqpTOHE5YBKeEj2N5NEp92NqPYycHvtruAUGeVXqLiusmw+NNNVwaS5tYo=
