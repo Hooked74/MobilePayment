@@ -8,7 +8,7 @@
 
 <br />
 
-[Demo](https://mobilepayment.now.sh)
+[Demo](https://mobile-payment.herokuapp.com)
 
 ## Quickstart
 
